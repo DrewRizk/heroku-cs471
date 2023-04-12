@@ -31,7 +31,7 @@ public class GettingStartedApplication {
         String AlphaNumericString = "abcdefghijklmnopqrstuvxyz";
 
         // create StringBuffer size of AlphaNumericString
-        StringBuilder sb = new StringBuilder(n);
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < 10; i++) {
 
@@ -53,7 +53,7 @@ public class GettingStartedApplication {
     @GetMapping("/database")
     String database(Map<String, Object> model) {
         try (Connection connection = dataSource.getConnection()) {
-            final var statement = connection.createStatement();
+            final var stmt = connection.createStatement();
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS table_timestamp_and_random_string (tick timestamp, random_string varchar(30))");
             stmt.executeUpdate("INSERT INTO table_timestamp_and_random_string VALUES (now(), '" + getRandomString() + "')");
 
