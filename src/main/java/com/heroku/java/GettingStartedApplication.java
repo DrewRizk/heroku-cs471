@@ -60,6 +60,7 @@ public class GettingStartedApplication {
             final var resultSet = stmt.executeQuery("SELECT * FROM table_timestamp_and_random_string");
             final var output = new ArrayList<>();
             while (resultSet.next()) {
+                System.out.println("Drew Rizk");
                 output.add("Read from DB: " + resultSet.getTimestamp("tick") + " " + resultSet.getString(2));
             }
 
